@@ -1,0 +1,54 @@
+*{ overflow: hidden; }
+
+.row{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.c-select{
+    width: 50%;
+    margin-bottom: 3px;
+}
+
+.weather-container{
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.temp-info{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temp-info-text{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.temp-info-text > div {
+    margin: 5px;
+}
+
+#city-banner{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+}
+
+#city-img{
+    width: 150px;
+    height: 150px;
+}
+
+#weather{
+    width: 250px;
+    height: 250px;
+}
