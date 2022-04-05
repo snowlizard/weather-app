@@ -1,6 +1,7 @@
 import React from 'react';
 import { Cities } from './components/cities/cities';
-import { Weather } from './components/weather/weather';
+import Weather from './components/weather';
+import rootStore from './rootStore';
 import '../css/main.css'
 
 export default class App extends React.Component {
@@ -17,10 +18,10 @@ export default class App extends React.Component {
 
         <div className="row">
           <div className='c-select'>
-            <Cities />
+            <Cities store={ rootStore }/>
           </div>
           <div>
-            <Weather />
+            <Weather store={rootStore}/>
           </div>
         </div>
 

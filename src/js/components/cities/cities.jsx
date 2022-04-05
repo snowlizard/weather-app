@@ -1,11 +1,12 @@
 import React from "react";
+import { changeCity } from "./citiesAction";
 
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&units=imperial&appid={API key}
 
-export const Cities = () => {
+export const Cities = (props) => {
     const handleChange = (e) => {
         const city = e.target.value.split(',');
-        
+        props.store.dispatch(changeCity(`https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=imperial&appid=${process.env.API_KEY}`))
     }
 
     return (
