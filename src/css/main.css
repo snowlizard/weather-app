@@ -72,3 +72,15 @@
 .temp-info{
     display: flex;
 }
+
+.city-bar{
+    display: flex;
+}
+
+.form-flex{
+    display: flex;
+}
+
+.search-bar{
+    width: 300px;
+}

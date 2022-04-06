@@ -6,21 +6,44 @@ import { changeCity } from "./citiesAction";
 export const Cities = (props) => {
     const handleChange = (e) => {
         const city = e.target.value.split(',');
-        props.store.dispatch(changeCity(`https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=imperial&appid=${process.env.API_KEY}`))
+        props.store.dispatch(changeCity(`https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=imperial&appid=${process.env.API_KEY}`));
+    }
+
+    const searchCity = (e) => {
+        e.preventDefault();
+        const cityName = document.getElementById('queryString').value;
+        props.store.dispatch(changeCity(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${process.env.API_KEY}`));
     }
 
     return (
-        <select name="cities" className="form-control"
-        onChange={ (e) => handleChange(e) }>
-            {
-                cities.map( city => (
-                    <option value={[city.name,city.country]}
-                    key={city.name+city.country}>
-                        {city.name}, {city.country}
-                    </option>
-                ))
-            }
-        </select>
+        <div className="city-bar">
+            <select name="cities" className="form-control m-1"
+            onChange={ (e) => handleChange(e) }>
+                {
+                    cities.map( city => (
+                        <option value={[city.name,city.country]}
+                        key={city.name+city.country}>
+                            {city.name}, {city.country}
+                        </option>
+                    ))
+                }
+            </select>
+            
+            <form>
+                <div className="form-group form-flex">
+                    <input type="text" name='city-name'
+                    className="form-control search-bar m-1 "
+                    placeholder="Enter city name"
+                    id="queryString" />
+                    <button type="submit"
+                    className="btn btn-primary m-1"
+                    onClick={ e => searchCity(e) }>
+                        Search
+                    </button>
+                </div>
+            </form>
+
+        </div>
     );
 }
 
