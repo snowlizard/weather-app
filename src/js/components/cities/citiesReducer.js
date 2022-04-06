@@ -1,8 +1,13 @@
 const citiesReducer = (state = defaultState, action ) => {
     switch(action.type){
         case 'CHANGE_CITY':
-            state = action.payload.data
-            return state
+            return { ...state, ...action.payload.data};
+        case 'CHANGE_CITY_REJECTED':
+          return state;
+        case 'CHANGE_CITY_PENDING':
+          return state;
+        case 'CHANGE_CITY_FULFILLED':
+            return { ...state, ...action.payload.data};
         default:
             return state;
     }
