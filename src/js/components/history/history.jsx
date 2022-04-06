@@ -1,7 +1,6 @@
 import React from "react";
 
 const History = (props) => {
-    console.log(props.history)
     return (
         <div className="card history-card m-1">
             <div className="card-header">Search History</div>
