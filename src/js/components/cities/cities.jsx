@@ -1,5 +1,6 @@
 import React from "react";
 import { changeCity } from "./citiesAction";
+import { addHistory } from '../history/historyAction';
 
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&units=imperial&appid={API key}
 
@@ -7,12 +8,14 @@ export const Cities = (props) => {
     const handleChange = (e) => {
         const city = e.target.value.split(',');
         props.store.dispatch(changeCity(`https://api.openweathermap.org/data/2.5/weather?q=${city[0]}&units=imperial&appid=${process.env.API_KEY}`));
+        props.store.dispatch(addHistory([city[0], new Date()]));
     }
 
     const searchCity = (e) => {
         e.preventDefault();
         const cityName = document.getElementById('queryString').value;
         props.store.dispatch(changeCity(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${process.env.API_KEY}`));
+        props.store.dispatch(addHistory([cityName, new Date()]));
     }
 
     return (

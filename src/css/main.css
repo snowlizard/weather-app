@@ -55,12 +55,15 @@
 }
 
 .weather-container{
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 .weather-card{
     display: flex;
+    width: 50%;
 }
 
 .body-flex{
@@ -83,4 +86,22 @@
 
 .search-bar{
     width: 300px;
+}
+
+.history-card{
+    width: 30%;
+    height: 400px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+@media (max-width: 800px) {
+    .weather-card{
+        width: 80%;
+    }
+
+    .history-card{
+        width: 80%;
+    }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cities } from './components/cities/cities';
+import History from './components/history';
 import Weather from './components/weather';
 import rootStore from './rootStore';
 import '../css/main.css'
@@ -22,6 +23,7 @@ export default class App extends React.Component {
 
         <div className='weather-container'>
           <Weather store={rootStore} />
+          <History store={rootStore} />
         </div>
       </div>
     );
